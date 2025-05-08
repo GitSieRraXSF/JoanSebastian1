@@ -67,9 +67,9 @@ public class ConcesionarioController {
 			carrosDisponibles.add(carro);
 		}
   		
-  		columnCantidadD.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
-  		columnMarcaD.setCellValueFactory(new PropertyValueFactory<>("marca"));
-  		columnModeloD.setCellValueFactory(new PropertyValueFactory<>("modelo"));
+  		columnColorE.setCellValueFactory(new PropertyValueFactory<>("color"));
+  		columnMarcaE.setCellValueFactory(new PropertyValueFactory<>("marca"));
+  		columnModeloE.setCellValueFactory(new PropertyValueFactory<>("modelo"));
   		
   		tableCarrosEliminados.setItems(carrosEliminados);
   	}
