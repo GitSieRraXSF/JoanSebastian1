@@ -6,7 +6,7 @@ public class Carro {
     private String modelo;
     private String color;
     private int cantidad;
-  
+    private int is_deleted;
 
     public Carro(int referencia, String marca, String modelo, String color, int cantidad) {
         this.referencia = referencia;
@@ -33,5 +33,12 @@ public class Carro {
     public int getCantidad() { return cantidad; }
     public void setCantidad(int cantidad) { this.cantidad = cantidad; }
 
-}
+	public int getIs_deleted() {
+		return is_deleted;
+	}
 
+	public void setIs_deleted(int is_deleted) {
+		this.is_deleted = is_deleted;
+	}
+    
+}
