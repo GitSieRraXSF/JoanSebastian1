@@ -63,8 +63,8 @@ public class ConcesionarioController {
   		
   		//Tabla de los carros eliminados
   		ObservableList<Carro> carrosEliminados = FXCollections.observableArrayList();
-  		for (Carro carro : carroDAO.fetchEliminados()) {
-  			carrosEliminados.add(carro);
+  		for (Carro carro1 : carroDAO.fetchEliminados()) {
+  			carrosEliminados.add(carro1);
 		}
   		
   		columnColorE.setCellValueFactory(new PropertyValueFactory<>("color"));

@@ -18,7 +18,7 @@ public class CarroDAO {
 
 	public ArrayList<Carro> fetchDisponibles() {
 		ArrayList<Carro> carros = new ArrayList<>();
-		String sql = "SELECT * FROM Carro WHERE is_deleted=0";
+		String sql = "SELECT * FROM Carro WHERE is_deleted = 0";
 		try (Statement stmt = connection.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
 			while (rs.next()) {
 				int referencia = rs.getInt("referencia");
@@ -36,8 +36,8 @@ public class CarroDAO {
 	}
 
 	public ArrayList<Carro> fetchEliminados() {
-		ArrayList<Carro> carros = new ArrayList<>();
-		String sql = "SELECT * FROM Carro WHERE is_deleted=1";
+		ArrayList<Carro> carros1 = new ArrayList<>();
+		String sql = "SELECT * FROM Carro WHERE is_deleted = 1";
 		try (Statement stmt = connection.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
 			while (rs.next()) {
 				int referencia = rs.getInt("referencia");
@@ -45,19 +45,19 @@ public class CarroDAO {
 				String marca = rs.getString("marca");
 				String modelo = rs.getString("modelo");
 				String color = rs.getString("color");
-				Carro carro = new Carro(referencia, marca, modelo, color, cantidad);
-				carros.add(carro);
+				Carro carro2 = new Carro(referencia, marca, modelo, color, cantidad);
+				carros1.add(carro2);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return carros;
+		return carros1;
 	}
 
 	public void eliminar(int referencia) {
 		String sql = "UPDATE Book SET is_deleted = 1 WHERE referencia = ?";
 		try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
-			pstmt.setLong(1, referencia);
+			pstmt.setInt(1, referencia);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -67,7 +67,7 @@ public class CarroDAO {
 	public void recuperar(int referencia) {
 		String sql = "UPDATE Book SET is_deleted = 0 WHERE referencia = ?";
 		try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
-			pstmt.setLong(1, referencia);
+			pstmt.setInt(1, referencia);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
